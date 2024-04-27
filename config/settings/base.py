@@ -83,6 +83,9 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "sweat_for_cash.users",
     # Your stuff: custom apps go here
+    "gym_sessions",
+    "payments",
+    "pools",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
