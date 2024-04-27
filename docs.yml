@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  docs:
+    image: sweat_for_cash_local_docs
+    container_name: sweat_for_cash_local_docs
+    build:
+      context: .
+      dockerfile: ./compose/local/docs/Dockerfile
+    env_file:
+      - ./.envs/.local/.django
+    volumes:
+      - ./docs:/docs:z
+      - ./config:/app/config:z
+      - ./sweat_for_cash:/app/sweat_for_cash:z
+    ports:
+      - '9000:9000'
+    command: /start-docs
