@@ -4,9 +4,15 @@ from .models import GymSession
 from .models import GymSessionImage
 
 
+class GymSessionImageInline(admin.TabularInline):
+    model = GymSessionImage
+    extra = 1  # Number of extra forms displayed
+
+
 @admin.register(GymSession)
 class GymSessionAdmin(admin.ModelAdmin):
     list_display = ("user", "date", "note")
+    inlines = [GymSessionImageInline]
 
 
 @admin.register(GymSessionImage)
