@@ -9,6 +9,11 @@ class GymSession(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     note = models.TextField(blank=True, default="")
 
+    class Meta:
+        ordering = ("-date",)
+        verbose_name = "Gym Session"
+        verbose_name_plural = "Gym Sessions"
+
     def __str__(self):
         return (
             f"Session on {self.date.strftime('%Y-%m-%d %H:%M')} by {self.user.username}"
@@ -23,6 +28,11 @@ class GymSessionImage(models.Model):
     )
     image = models.ImageField(upload_to="gym_sessions/")
     upload_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ("-upload_date",)
+        verbose_name = "Gym Session Image"
+        verbose_name_plural = "Gym Session Images"
 
     def __str__(self):
         return f"Image for session on {self.session.date.strftime('%Y-%m-%d %H:%M')} uploaded on {self.upload_date.strftime('%Y-%m-%d %H:%M')}"  # noqa: E501
